@@ -41,6 +41,7 @@ app.get("/", function(request, response){
     response.send(now.toLocaleString("ru", options));
     console.log("get /");
 });
+
 app.get("/start", function(request, response){
     setTimeout(sayHi, 5000, "Привет", "Джон");
     response.send(now);
@@ -48,6 +49,13 @@ app.get("/start", function(request, response){
     console.log(hours);
 });
 
+app.get("/file", function(request, response){
+    // синхронное чтение
+    console.log("Синхронное чтение файла")
+    let fileContent = fs.readFileSync("hello.txt", "utf8");
+    console.log(fileContent);
+    response.send(fileContent);
+});
 
 app.get("/about", function(request, response){
 
@@ -60,6 +68,7 @@ app.get("/contact", function(request, response){
     response.send("<h1>Контакты</h1>");
     console.log("get /contact");
 });
+
 app.get("/time", function(request, response){
 
     let mom = moment().locale("ru").format('HH:mm:ss');
@@ -71,4 +80,7 @@ app.get("/time", function(request, response){
     setTimeout(sayHi, 10000, "Привет2 ", mom);
     setTimeout(file, 15000, "Привет2 ", mom);
 });
+
+
+
 app.listen(5000);
