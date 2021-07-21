@@ -8,5 +8,7 @@
 
 <h1>CHARGE</h1>
 
+<?php phpinfo(); ?>
+
 </body>
 </html>
