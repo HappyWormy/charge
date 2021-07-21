@@ -33,12 +33,13 @@ function file(phrase, who) {
     });
 }
 
-
+console.log("Приложение запущено");
 
 app.get("/", function(request, response){
 
     let now = new Date();
     response.send(now.toLocaleString("ru", options));
+    console.log("get /");
 });
 app.get("/start", function(request, response){
     setTimeout(sayHi, 5000, "Привет", "Джон");
@@ -51,11 +52,13 @@ app.get("/start", function(request, response){
 app.get("/about", function(request, response){
 
     response.send("<h1>О сайте</h1>");
+    console.log("get /about");
 });
 
 app.get("/contact", function(request, response){
 
     response.send("<h1>Контакты</h1>");
+    console.log("get /contact");
 });
 app.get("/time", function(request, response){
 
@@ -69,7 +72,3 @@ app.get("/time", function(request, response){
     setTimeout(file, 15000, "Привет2 ", mom);
 });
 app.listen(5000);
-
-
-
-
